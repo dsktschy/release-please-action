@@ -40,6 +40,7 @@ interface ActionInputs {
   skipGitHubRelease?: boolean;
   skipGitHubPullRequest?: boolean;
   skipLabeling?: boolean;
+  skipChangelog?: boolean;
   fork?: boolean;
   includeComponentInTag?: boolean;
   changelogHost: string;
@@ -62,6 +63,7 @@ function parseInputs(): ActionInputs {
     skipGitHubRelease: getOptionalBooleanInput('skip-github-release'),
     skipGitHubPullRequest: getOptionalBooleanInput('skip-github-pull-request'),
     skipLabeling: getOptionalBooleanInput('skip-labeling'),
+    skipChangelog: getOptionalBooleanInput('skip-changelog'),
     fork: getOptionalBooleanInput('fork'),
     includeComponentInTag: getOptionalBooleanInput('include-component-in-tag'),
     changelogHost: core.getInput('changelog-host') || DEFAULT_GITHUB_SERVER_URL,
@@ -94,6 +96,7 @@ function loadOrBuildManifest(
         releaseType: inputs.releaseType,
         includeComponentInTag: inputs.includeComponentInTag,
         changelogHost: inputs.changelogHost,
+        skipChangelog: inputs.skipChangelog,
       },
       {
         fork: inputs.fork,
