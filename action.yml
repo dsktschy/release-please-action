@@ -62,6 +62,10 @@ inputs:
     description: 'if set to true, then do not try to label the PR'
     required: false
     default: false
+  skip-changelog:
+    description: 'if set to true, then do not try to generate a changelog'
+    required: false
+    default: false
   changelog-host:
     description: 'The proto://host where commits live. Default `https://github.com`'
     required: false
